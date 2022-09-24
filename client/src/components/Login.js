@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { Login_User } from '../utils/mutations';
+import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 export default function Login() {
@@ -11,7 +11,7 @@ export default function Login() {
 const [userFormData, setUserFormData] = useState({ email: '', password: ''});
 const [validated] = useState(false);
 const [showAlert, setShowAlert] = useState(false);
-const [login, {error}] = useMutation(Login_User);
+const [login, {error}] = useMutation(LOGIN_USER);
 
 useEffect(() => {
     if (error) {
@@ -68,7 +68,7 @@ const handleFormSubmit = async (event) => {
                     Email
                 </Form.Label>
                 <Form.Control
-                type='text'
+                type='email'
                 placeholder="Your Email Address"
                 name='email'
                 onChange={handleInputChange}
